@@ -9,20 +9,20 @@ void removeLoop(ListNode *head) {
 
     ListNode *slow = head, *fast = head;
 
-    // Step 1: Detect loop using Floyd’s cycle detection
+   
     while (fast && fast->next) {
         slow = slow->next;
         fast = fast->next->next;
-        if (slow == fast) break;  // loop detected
+        if (slow == fast) break; 
     }
 
-    // No loop found
+    
     if (slow != fast) return;
 
-    // Step 2: Find the start of the loop
+   
     slow = head;
     if (slow == fast) {
-        // Special case: loop starts at head
+       
         while (fast->next != slow) {
             fast = fast->next;
         }
@@ -33,6 +33,6 @@ void removeLoop(ListNode *head) {
         }
     }
 
-    // Step 3: Break the loop
+   
     fast->next = nullptr;
 }
