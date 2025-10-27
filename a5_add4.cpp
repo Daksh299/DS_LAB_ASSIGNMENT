@@ -10,7 +10,7 @@ struct ListNode {
 ListNode* rotateLeft(ListNode* head, int k) {
     if (!head || k == 0) return head;
 
-    // First, find the length of the list
+   
     int length = 1;
     ListNode* tail = head;
     while (tail->next) {
@@ -18,27 +18,25 @@ ListNode* rotateLeft(ListNode* head, int k) {
         length++;
     }
 
-    // Normalize k if it's greater than length
+    
     k = k % length;
-    if (k == 0) return head; // no rotation needed
-
-    // Find the new tail: (k-th node from the start)
+    if (k == 0) return head; 
     ListNode* newTail = head;
     for (int i = 1; i < k; i++) {
         newTail = newTail->next;
     }
 
-    // The node after newTail will be the new head
+   
     ListNode* newHead = newTail->next;
 
-    // Rotate the list
-    newTail->next = nullptr;  // break the list
-    tail->next = head;        // connect old tail to old head
+    
+    newTail->next = nullptr;  
+    tail->next = head;        
 
     return newHead;
 }
 
-// Utility function to print linked list
+
 void printList(ListNode* head) {
     while (head) {
         cout << head->val << " ";
@@ -47,9 +45,9 @@ void printList(ListNode* head) {
     cout << "\n";
 }
 
-// Example usage
+
 int main() {
-    // Create linked list: 1->2->3->4->5
+   
     ListNode* head = new ListNode(1);
     head->next = new ListNode(2);
     head->next->next = new ListNode(3);
